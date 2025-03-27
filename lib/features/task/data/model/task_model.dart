@@ -1,6 +1,8 @@
 import 'dart:convert';
 
-class TaskModel {
+import 'package:equatable/equatable.dart';
+
+class TaskModel extends Equatable {
   TaskModel(
       {required this.id,
       required this.title,
@@ -61,4 +63,7 @@ class TaskModel {
   String toString() {
     return 'TaskModel(id: $id, title: $title, description: $description, date: $date, isDone: $isDone)';
   }
+
+  @override
+  List<Object?> get props => [id, title, description, isDone];
 }
