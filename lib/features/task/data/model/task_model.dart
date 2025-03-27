@@ -5,23 +5,27 @@ class TaskModel {
       {required this.id,
       required this.title,
       required this.description,
+      required this.date,
       required this.isDone});
 
   final String id;
   final String title;
   final String description;
+  final DateTime date;
   final bool isDone;
 
   TaskModel copyWith({
     String? id,
     String? title,
     String? description,
+    DateTime? date,
     bool? isDone,
   }) {
     return TaskModel(
         id: id ?? this.id,
         title: title ?? this.title,
         description: description ?? this.description,
+        date: date ?? this.date,
         isDone: isDone ?? this.isDone);
   }
 
@@ -30,6 +34,7 @@ class TaskModel {
         id: map['id'],
         title: map['title'],
         description: map['description'],
+        date: map['date'],
         isDone: map['isDone']);
   }
 
@@ -38,12 +43,13 @@ class TaskModel {
       'id': id,
       'title': title,
       'description': description,
+      'date': date,
       'isDone': isDone,
     };
   }
 
   String toJson() {
-    return '{"id": $id, "title": $title, "description": $description, "isDone": $isDone}';
+    return '{"id": $id, "title": $title, "description": $description, "date": $date "isDone": $isDone}';
   }
 
   factory TaskModel.fromJson(String json) {
@@ -53,6 +59,6 @@ class TaskModel {
 
   @override
   String toString() {
-    return 'TaskModel(id: $id, title: $title, description: $description, isDone: $isDone)';
+    return 'TaskModel(id: $id, title: $title, description: $description, date: $date, isDone: $isDone)';
   }
 }
